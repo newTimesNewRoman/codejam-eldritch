@@ -1,0 +1,133 @@
+body {
+  min-width: 450px;
+  min-height: 100vh;
+  font-family: 'Arial', sans-serif;
+  font-size: 16px;
+  color: aliceblue;
+  text-align: center;
+  background: center/cover, rgba(0, 0, 0, 0.5);
+}
+
+.flex-container {
+  min-width: 450px;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 12px;
+}
+
+.greeting {
+  flex-direction: column;
+}
+
+.ancients {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 20px;
+  min-width: 400px;
+  padding: 0px 20px 20px;
+}
+
+.ancient-card {
+  width: 218px;
+  height: 285px;
+  border-radius: 12px;
+}
+
+#azathoth {
+  background-image: url(./assets/Ancients/Azathoth.png);
+  background-size: 100%;
+}
+
+#cthulhu {
+  background-image: url(./assets/Ancients/Cthulthu.png);
+  background-size: 100%;
+}
+
+#iogSothoth {
+  background-image: url(./assets/Ancients/iogSothoth.png);
+  background-size: 100%;
+}
+
+#shubNiggurath {
+  background-image: url(./assets/Ancients/shubNiggurath.png);
+  background-size: 100%;
+}
+
+.difficulty {
+  flex-direction: column;
+  min-width: 400px;
+  padding: 0px 20px 20px;
+}
+
+.difficulty-buttons {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.button {
+  background-color: black;
+  min-width: 200px;
+  min-height: 40px;
+  border-radius: 12px;
+  font-weight: 600;
+  line-height: 300%;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.button:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+  color: goldenrod;
+}
+
+.create-deck-button {
+  min-width: 400px;
+  min-height: 200px;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.game {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding: 20px 20px 20px;
+}
+
+.deck-container {
+  display: flex;
+  gap: 20px;
+}
+
+.cards {
+  width: 275px;
+  height: 400px;
+  border-radius: 12px;
+}
+
+#closedCards {
+  background-image: url(./assets/mythicCardBackground.png);
+  background-size: 100%;
+}
+
+#openCards {
+  background-image: url(./assets/backgroundCard.png);
+  background-size: 100%;
+  opacity: 0.5;
+}
+
+.hidden {
+  display: none;
+}

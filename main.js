@@ -295,3 +295,36 @@ function createCompleteDesk() {
   };
 }
 console.log(createCompleteDesk())
+
+const body = document.querySelector('body');
+
+function setBg() {
+  let randomNum = 0;
+  function getRandomNum() {
+    const min = Math.ceil(1);
+    const max = Math.floor(3);
+    randomNum = Math.floor(Math.random() * (max - min + 1)) + min;
+  };
+  getRandomNum();
+
+  const img = new Image();
+  const bgNum = randomNum.toString();
+  img.src = `./assets/Background-${bgNum}.jpg`;
+  img.onload = () => {      
+    body.style.backgroundImage = `url(./assets/Background-${bgNum}.jpg)`;
+  }; 
+};
+setBg();
+
+const openCards = document.querySelector('#openCards');
+const closedCards = document.querySelector('#closedCards');
+
+function openDeck() {
+  const img = new Image();
+  img.src = './assets/mythicCardBackground.png';
+  img.onload = () => {      
+    openCards.style.backgroundImage = 'url(./assets/mythicCardBackground.png)';
+    openCards.style.opacity = "1";
+  }; 
+};
+closedCards.addEventListener('click', openDeck);

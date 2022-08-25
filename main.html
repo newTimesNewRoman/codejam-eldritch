@@ -4,8 +4,45 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>codejam-eldritch</title>
+  <link rel="stylesheet" href="main.css">
 </head>
 <body>
+  <div class="flex-container">
+    <div class="greeting container hidden">
+      <h1>Welcome, adventurer!</h1>
+      <h2>Choose the Ancient:</h2>
+      <div class="ancients">
+        <div class="ancient-card" id="azathoth"></div>
+        <div class="ancient-card" id="cthulhu"></div>
+        <div class="ancient-card" id="iogSothoth"></div>
+        <div class="ancient-card" id="shubNiggurath"></div>
+      </div>
+    </div>
+      <div class="difficulty container hidden">
+        <h2>Choose your difficulty level:</h2>
+        <div class="difficulty-buttons">
+            <div class="button" id="veryEasy">Very Easy</div>
+            <div class="button" id="easy">Easy</div>
+            <div class="button" id="normal">Normal</div>
+            <div class="button" id="hard">Hard</div>
+            <div class="button" id="extraHard">Extra Hard</div>
+        </div>
+      </div>
+      <div class="create-deck-button container hidden">
+        <div class="button" id="startButton">Create a Deck</div>
+        <div class="button" id="closeButton">Change Settings</div>
+      </div>
+      <div class="game container ">
+        <div class="deck-container">
+          <div class="cards" id="closedCards"></div>
+          <div class="cards" id="openCards"></div>
+        </div>
+        <div class="button" id="closeButton">Repeat Game</div>
+      </div>
+  </div>
+  <script src="./assets/MythicCards/green/index.js" type="module"></script>
+  <script src="./assets/MythicCards/blue/index.js" type="module"></script>
+  <script src="./assets/MythicCards/brown/index.js" type="module"></script>
   <script src="./data/mythicCards/green/index.js" type="module"></script>
   <script src="./data/mythicCards/blue/index.js" type="module"></script>
   <script src="./data/mythicCards/brown/index.js" type="module"></script>
