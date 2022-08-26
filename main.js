@@ -39,9 +39,22 @@ shubNiggurath.addEventListener('click', function() {
   difficultyWindow.classList.remove('hidden');
 });
 
-const sumOfGreenCards = ancientsData[ancientNumber].firstStage.greenCards + ancientsData[ancientNumber].secondStage.greenCards + ancientsData[ancientNumber].thirdStage.greenCards;
-const sumOfBlueCards = ancientsData[ancientNumber].firstStage.blueCards + ancientsData[ancientNumber].secondStage.blueCards + ancientsData[ancientNumber].thirdStage.blueCards;
-const sumOfBrownCards = ancientsData[ancientNumber].firstStage.brownCards + ancientsData[ancientNumber].secondStage.brownCards + ancientsData[ancientNumber].thirdStage.brownCards;
+//let sumOfGreenCards = ancientsData[ancientNumber].firstStage.greenCards + ancientsData[ancientNumber].secondStage.greenCards + ancientsData[ancientNumber].thirdStage.greenCards;
+//let sumOfBlueCards = ancientsData[ancientNumber].firstStage.blueCards + ancientsData[ancientNumber].secondStage.blueCards + ancientsData[ancientNumber].thirdStage.blueCards;
+//let sumOfBrownCards = ancientsData[ancientNumber].firstStage.brownCards + ancientsData[ancientNumber].secondStage.brownCards + ancientsData[ancientNumber].thirdStage.brownCards;
+
+function greenCardsCounting() {
+  return ancientsData[ancientNumber].firstStage.greenCards + ancientsData[ancientNumber].secondStage.greenCards + ancientsData[ancientNumber].thirdStage.greenCards;
+};
+function blueCardsCounting() {
+  return ancientsData[ancientNumber].firstStage.blueCards + ancientsData[ancientNumber].secondStage.blueCards + ancientsData[ancientNumber].thirdStage.blueCards;
+};
+function brownCardsCounting() {
+  return ancientsData[ancientNumber].firstStage.brownCards + ancientsData[ancientNumber].secondStage.brownCards + ancientsData[ancientNumber].thirdStage.brownCards;
+};
+
+
+
 
 let difficultyOfGame = '';
 
@@ -91,12 +104,10 @@ let firstStageDeck = [];
 let secondStageDeck = [];
 let thirdStageDeck = [];
 
-console.log('Сначала', prepareGreenDeck, greenCardsDeck);
-
 function createNormalDeck() {
-greenCardsDeck = greenCardsData;
-blueCardsDeck = blueCardsData;
-brownCardsDeck = brownCardsData;
+  greenCardsDeck = greenCardsData;
+  blueCardsDeck = blueCardsData;
+  brownCardsDeck = brownCardsData;
 }
 
 function createEasyDeck() {
@@ -195,20 +206,16 @@ function createExtraHardDeck() {
       brownCardsDeck.push(card);
     };
   });
-
-  console.log('Создали экстра-хард', prepareGreenDeck, greenCardsDeck);
 };
 
 function createPrepareDecks() {
-  while (prepareGreenDeck.length <= sumOfGreenCards) {
+  while (prepareGreenDeck.length <= greenCardsCounting()) {
     let random = Math.floor(Math.random() * (greenCardsDeck.length - 1));
     let card = greenCardsDeck[random];
-    console.log(greenCardsDeck[random]);
     if (!prepareGreenDeck.includes(card)) {
       prepareGreenDeck.push(card);
     }
   };
-  console.log('Создали подготовительную колоду', prepareGreenDeck, greenCardsDeck);
 
   for (let i = prepareGreenDeck.length - 1; i > 0; i--) {
     let j = Math.floor(Math.random() * i);
@@ -216,9 +223,8 @@ function createPrepareDecks() {
     prepareGreenDeck[i] = prepareGreenDeck[j];
     prepareGreenDeck[j] = temp;
   };
-  console.log('Перемешали подготовительную колоду', prepareGreenDeck, greenCardsDeck);
 
-  while (prepareBlueDeck.length <= sumOfBlueCards) {
+  while (prepareBlueDeck.length <= blueCardsCounting()) {
     let random = Math.floor(Math.random() * (blueCardsDeck.length - 1));
     let card = blueCardsDeck[random];
     if (!prepareBlueDeck.includes(card)) {
@@ -233,7 +239,7 @@ function createPrepareDecks() {
     prepareBlueDeck[j] = temp;
   };
 
-  while (prepareBrownDeck.length <= sumOfBrownCards) {
+  while (prepareBrownDeck.length <= brownCardsCounting()) {
     let random = Math.floor(Math.random() * (brownCardsDeck.length - 1));
     let card = brownCardsDeck[random];
     if (!prepareBrownDeck.includes(card)) {
@@ -268,7 +274,6 @@ function createFirstStageDeck() {
     firstStageDeck[i] = firstStageDeck[j];
     firstStageDeck[j] = temp;
   }
-  console.log(firstStageDeck);
   return firstStageDeck;
 };
 
@@ -291,7 +296,6 @@ function createSecondStageDeck() {
     secondStageDeck[i] = secondStageDeck[j];
     secondStageDeck[j] = temp;
   }
-  console.log(secondStageDeck);
   return secondStageDeck;
 };
 
@@ -314,12 +318,29 @@ function createThirdStageDeck() {
     thirdStageDeck[i] = thirdStageDeck[j];
     thirdStageDeck[j] = temp;
   }
-  console.log(thirdStageDeck);
   return thirdStageDeck;
+};
+
+const greenCounter = document.querySelector('#greenCounter');
+const blueCounter = document.querySelector('#blueCounter');
+const brownCounter = document.querySelector('#brownCounter');
+
+let greenCardsLeft = 0;
+let blueCardsLeft = 0;
+let brownCardsLeft = 0;
+
+function showCounter() {
+  greenCounter.innerHTML = greenCardsLeft;
+  blueCounter.innerHTML = blueCardsLeft;
+  brownCounter.innerHTML = brownCardsLeft;
 };
 
 let compliteDesk = [];
 function createCompleteDesk() {
+  greenCardsLeft = greenCardsCounting();
+  blueCardsLeft = blueCardsCounting();
+  brownCardsLeft = brownCardsCounting();
+  showCounter();
   if (difficultyOfGame == 'veryEasy') {
     createVeryEasyDeck();
     createPrepareDecks();
@@ -372,16 +393,31 @@ const closedCards = document.querySelector('#closedCards');
 const cardsIsOver = document.querySelector('#cardsIsOver');
 let counter = 0;
 
+function cardsCounting(selectColor) {
+  if (selectColor == 'green') {
+    greenCardsLeft -= 1;
+  }
+  if (selectColor == 'blue') {
+    blueCardsLeft -= 1;
+  }
+  if (selectColor == 'brown') {
+    brownCardsLeft -= 1;
+  }
+  showCounter();
+};
+
 function openDeck() {
   const img = new Image();
-  const selectFolder = compliteDesk[counter].color;
-  const selectCard = compliteDesk[counter].id;
-  console.log(selectCard);
-  img.src = `./assets/MythicCards/${selectFolder}/${selectCard}.png`
+  let selectColor = compliteDesk[counter].color;
+  let selectCard = compliteDesk[counter].id;
+  img.src = `./assets/MythicCards/${selectColor}/${selectCard}.png`
   img.onload = () => {      
-    openCards.style.backgroundImage = `url(./assets/MythicCards/${selectFolder}/${selectCard}.png)`;
+    openCards.style.backgroundImage = `url(./assets/MythicCards/${selectColor}/${selectCard}.png)`;
     openCards.style.opacity = "1";
     }; 
+  
+  cardsCounting(selectColor);
+    
   counter += 1;
   if (counter === compliteDesk.length) {
     closedCards.classList.add('hidden');
@@ -422,7 +458,7 @@ function cardsReset() {
 }
 
 startButton.addEventListener('click', function() {
-  console.log(createCompleteDesk());
+  createCompleteDesk();
   createDeckWindow.classList.add('hidden');
   gameWindow.classList.remove('hidden');
 });
