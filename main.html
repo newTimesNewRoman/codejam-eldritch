@@ -8,7 +8,7 @@
 </head>
 <body>
   <div class="flex-container">
-    <div class="greeting container hidden">
+    <div class="greeting container ">
       <h1>Welcome, adventurer!</h1>
       <h2>Choose the Ancient:</h2>
       <div class="ancients">
@@ -32,17 +32,15 @@
         <div class="button" id="startButton">Create a Deck</div>
         <div class="button" id="closeButton">Change Settings</div>
       </div>
-      <div class="game container ">
+      <div class="game container hidden">
         <div class="deck-container">
+          <div class="cards hidden" id="cardsIsOver"></div>
           <div class="cards" id="closedCards"></div>
           <div class="cards" id="openCards"></div>
         </div>
-        <div class="button" id="closeButton">Repeat Game</div>
+        <div class="button" id="repeatButton">Repeat Game</div>
       </div>
   </div>
-  <script src="./assets/MythicCards/green/index.js" type="module"></script>
-  <script src="./assets/MythicCards/blue/index.js" type="module"></script>
-  <script src="./assets/MythicCards/brown/index.js" type="module"></script>
   <script src="./data/mythicCards/green/index.js" type="module"></script>
   <script src="./data/mythicCards/blue/index.js" type="module"></script>
   <script src="./data/mythicCards/brown/index.js" type="module"></script>
