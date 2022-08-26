@@ -1,11 +1,17 @@
+@font-face {
+  font-family: 'BusoramaITC-Bold';
+  src: url("./assets/BusoramaITC-Bold.ttf"); /* Путь к файлу со шрифтом */
+ }
+
 body {
   min-width: 450px;
   min-height: 100vh;
-  font-family: 'Arial', sans-serif;
-  font-size: 16px;
+  font-family: 'BusoramaITC-Bold', sans-serif;
+  font-size: 18px;
   color: aliceblue;
   text-align: center;
   background: center/cover, rgba(0, 0, 0, 0.5);
+  font-weight: 600;
 }
 
 .flex-container {
@@ -28,6 +34,10 @@ body {
   flex-direction: column;
 }
 
+h1 {
+  margin-bottom: 0;
+}
+
 .ancients {
   display: flex;
   flex-wrap: wrap;
@@ -41,6 +51,12 @@ body {
   width: 218px;
   height: 285px;
   border-radius: 12px;
+  transition: all 1s ease 0s;
+}
+
+.ancient-card:hover {
+  cursor: pointer;
+  transform: scale(1.1);
 }
 
 #azathoth {
@@ -90,6 +106,7 @@ body {
 .button:hover {
   background-color: rgba(0, 0, 0, 0.8);
   color: goldenrod;
+  cursor: pointer;
 }
 
 .create-deck-button {
@@ -132,6 +149,30 @@ body {
   background-image: url(./assets/backgroundCard.png);
   background-size: 100%;
   opacity: 0.5;
+}
+
+.counter-container {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.counter {
+  min-width: 60px;
+  min-height: 60px;
+  border-radius: 12px;
+}
+
+#greenCounter {
+  background-color: rgb(30, 152, 38);
+}
+
+#blueCounter {
+  background-color: rgb(6,57,112);
+}
+
+#brownCounter {
+  background-color: rgb(135,62,35);
 }
 
 .hidden {
