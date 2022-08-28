@@ -60,22 +60,22 @@ h1 {
 }
 
 #azathoth {
-  background-image: url(./assets/Ancients/Azathoth.png);
+  background-image: url(./assets/Ancients/Azathoth.webp);
   background-size: 100%;
 }
 
 #cthulhu {
-  background-image: url(./assets/Ancients/Cthulthu.png);
+  background-image: url(./assets/Ancients/Cthulthu.webp);
   background-size: 100%;
 }
 
 #iogSothoth {
-  background-image: url(./assets/Ancients/iogSothoth.png);
+  background-image: url(./assets/Ancients/iogSothoth.webp);
   background-size: 100%;
 }
 
 #shubNiggurath {
-  background-image: url(./assets/Ancients/shubNiggurath.png);
+  background-image: url(./assets/Ancients/shubNiggurath.webp);
   background-size: 100%;
 }
 
@@ -135,18 +135,18 @@ h1 {
 }
 
 #closedCards {
-  background-image: url(./assets/mythicCardBackground.png);
+  background-image: url(./assets/mythicCardBackground.webp);
   background-size: 100%;
 }
 
 #openCards {
-  background-image: url(./assets/backgroundCard.png);
+  background-image: url(./assets/backgroundCard.webp);
   background-size: 100%;
   opacity: 0.5;
 }
 
 #cardsIsOver {
-  background-image: url(./assets/backgroundCard.png);
+  background-image: url(./assets/backgroundCard.webp);
   background-size: 100%;
   opacity: 0.5;
 }

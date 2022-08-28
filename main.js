@@ -39,10 +39,6 @@ shubNiggurath.addEventListener('click', function() {
   difficultyWindow.classList.remove('hidden');
 });
 
-//let sumOfGreenCards = ancientsData[ancientNumber].firstStage.greenCards + ancientsData[ancientNumber].secondStage.greenCards + ancientsData[ancientNumber].thirdStage.greenCards;
-//let sumOfBlueCards = ancientsData[ancientNumber].firstStage.blueCards + ancientsData[ancientNumber].secondStage.blueCards + ancientsData[ancientNumber].thirdStage.blueCards;
-//let sumOfBrownCards = ancientsData[ancientNumber].firstStage.brownCards + ancientsData[ancientNumber].secondStage.brownCards + ancientsData[ancientNumber].thirdStage.brownCards;
-
 function greenCardsCounting() {
   return ancientsData[ancientNumber].firstStage.greenCards + ancientsData[ancientNumber].secondStage.greenCards + ancientsData[ancientNumber].thirdStage.greenCards;
 };
@@ -52,9 +48,6 @@ function blueCardsCounting() {
 function brownCardsCounting() {
   return ancientsData[ancientNumber].firstStage.brownCards + ancientsData[ancientNumber].secondStage.brownCards + ancientsData[ancientNumber].thirdStage.brownCards;
 };
-
-
-
 
 let difficultyOfGame = '';
 
@@ -410,9 +403,9 @@ function openDeck() {
   const img = new Image();
   let selectColor = compliteDesk[counter].color;
   let selectCard = compliteDesk[counter].id;
-  img.src = `./assets/MythicCards/${selectColor}/${selectCard}.png`
+  img.src = `./assets/MythicCards/${selectColor}/${selectCard}.webp`
   img.onload = () => {      
-    openCards.style.backgroundImage = `url(./assets/MythicCards/${selectColor}/${selectCard}.png)`;
+    openCards.style.backgroundImage = `url(./assets/MythicCards/${selectColor}/${selectCard}.webp)`;
     openCards.style.opacity = "1";
     }; 
   
@@ -445,9 +438,9 @@ function cardsReset() {
   counter = 0;
   
   const img = new Image();
-  img.src = './assets/backgroundCard.png';
+  img.src = './assets/backgroundCard.webp';
   img.onload = () => {      
-    openCards.style.backgroundImage = 'url(./assets/backgroundCard.png)';
+    openCards.style.backgroundImage = 'url(./assets/backgroundCard.webp)';
     openCards.style.opacity = "0.5";
     };
 
